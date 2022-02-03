@@ -4,23 +4,20 @@ import { apiURL } from "./util/apiURL.js";
 const API = apiURL();
 
 function App() {
-  const [days, setDays] = useState([]);
+  const [apt, setApt] = useState({});
   useEffect(() => {
     axios
-      .get(`${API}/test`)
+      .get(`${API}/appointments`)
       .then(
-        (response) => setDays(response.data),
+        (response) => setApt(response.data.payload),
         (error) => console.log("get", error)
       )
       .catch((c) => console.warn("catch", c));
   }, []);
+  console.log(apt)
   return (
     <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+     {apt.doctor}
     </div>
   );
 }
