@@ -1,6 +1,10 @@
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS appointments;
 
-CREATE TABLE test (
+CREATE TABLE appointments (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    doctor TEXT,
+    patient TEXT,
+    reason_for_visit TEXT,
+    notes TEXT,
+    date TEXT
 );
