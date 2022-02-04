@@ -1,0 +1,25 @@
+.appointments {
+
+  &__leftContainer {
+  display: inline;
+    float: left;
+    width: 45vw;
+    border: lightgray solid 2px;
+    height: 80vh;
+    overflow-y: scroll;
+    margin-top: 2vh;
+  }
+  
+
+  // .ListGroup.Item{
+
+  // }
+}
+.appointments__rightContainer{
+    width: 47vw;
+    border: lightgray solid 2px;
+    height: 80vh;
+    margin-top: 2vh;
+    background-color: limegreen;
+    // margin-left: 50vw;
+}

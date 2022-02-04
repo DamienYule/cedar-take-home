@@ -1,0 +1,36 @@
+.nav {
+  &__container {
+    background-color: rgb(252, 242, 242);
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    align-self: center;
+    margin: 10px;
+    width: 150px;
+    height: auto;
+
+  }
+  &__filter {
+      
+        width: 40%;
+        height: 20%;
+        margin: 1%;
+        margin-top: 20px;
+        padding: 7px 0;
+        border: none;
+        border-bottom: 1px lightgray  solid;
+        outline: none;
+        font-family: 'Raleway', sans-serif;
+
+        &:focus {
+          border-bottom: 1px gray solid;
+        }
+  }
+  &__plus {
+    float: right;
+    margin: 20px;
+    font-size: 35px;
+    color: grey;
+  }
+}

@@ -1,24 +1,13 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
-const API = apiURL();
+import React from "react";
+import Appointments from "./components/appointments/Appointments";
 
+import "./App.scss"
 function App() {
-  const [apt, setApt] = useState({});
-  useEffect(() => {
-    axios
-      .get(`${API}/appointments`)
-      .then(
-        (response) => setApt(response.data.payload),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
-  console.log(apt)
   return (
-    <div>
-     {apt.doctor}
-    </div>
+  <div className="app">
+  
+  <Appointments />
+  </div>
   );
 }
 
