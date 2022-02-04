@@ -23,12 +23,12 @@ const fetchApt = async (id) => {
 };
 
 const newApt = async (apt) => {
-  const { doctor,patient, reason_for_visit, notes, date} =
+  const { doctor,img,patient, reason_for_visit, notes, date} =
     apt;
   try {
     const createdApt = await db.one(
-      `INSERT INTO appointments (doctor,patient, reason_for_visit, notes, date) VALUES ($1,$2,$3,$4,$5) RETURNING *`,
-      [doctor,patient, reason_for_visit, notes, date]
+      `INSERT INTO appointments (doctor, patient, img, reason_for_visit, notes, date) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
+      [doctor,img,patient, reason_for_visit, notes, date]
     );
     return { success: true, payload: createdApt };
   } catch (error) {
@@ -38,12 +38,12 @@ const newApt = async (apt) => {
 };
 
 const updateApt = async (id, apt) => {
-  const { doctor,patient, reason_for_visit, notes, date} =
+  const { doctor,img,patient, reason_for_visit, notes, date} =
     apt;
   try {
     const updatedApt = await db.one(
-      `UPDATE appointments SET doctor=$1,patient=$2, reason_for_visit=$3, notes=$4, date=$5 WHERE id=$6 RETURNING *`,
-      [doctor,patient, reason_for_visit, notes, date, id]
+      `UPDATE appointments SET doctor=$1,img=$2,patient=$3, reason_for_visit=$4, notes=$5, date=$6 WHERE id=$7 RETURNING *`,
+      [doctor,img,patient, reason_for_visit, notes, date, id]
     );
     return { success: true, payload: updatedApt };
   } catch (error) {
