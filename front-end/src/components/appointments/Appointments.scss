@@ -1,7 +1,6 @@
 .appointments {
-
   &__leftContainer {
-  display: inline;
+    display: inline;
     float: left;
     width: 45vw;
     border: lightgray solid 1px;
@@ -11,29 +10,29 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     border-radius: 0px;
   }
-  &__header{
-font-size: 50px;
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  &__header {
+    font-size: 50px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
-  &__footer{
-      position:absolute;
-      margin-top: 82vh;
-      margin-left: 73vw;
-      padding-bottom:30px ;
-      color: rgb(155, 5, 5);
+  &__footer {
+    position: absolute;
+    margin-top: 82vh;
+    margin-left: 73vw;
+    padding-bottom: 30px;
+    color: rgb(201, 3, 3);
+    font-family: monospace;
   }
-
-  
 
   // .ListGroup.Item{
 
   // }
 }
-.appointments__rightContainer{
-    width: 47vw;
-    border: lightgray solid 2px;
-    height: 75vh;
-    margin-top: 2vh;
-    background-color: limegreen;
-    // margin-left: 50vw;
+.appointments__rightContainer {
+  width: 47vw;
+  border: lightgray solid 2px;
+  height: 75vh;
+  margin-top: 2vh;
+  background-color: limegreen;
+  // margin-left: 50vw;
 }
