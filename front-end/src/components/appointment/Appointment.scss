@@ -1,15 +1,32 @@
 .rightContainer {
   position: absolute;
   width: 45vw;
-  border: lightgray solid 2px;
-  height: 80vh;
+  border: lightgray solid 1px;
+  border-radius: 4px;
+  height: 75vh;
   margin-top: 2vh;
   margin-left: 50vw;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
   overflow-y: scroll;
 
-  &__notSelected{
+  &__notSelected {
     font-size: 30px;
     text-align: center;
     margin-top: 20vh;
+  }
+  &__twoContainers {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+  }
+  &__img {
+    margin-top: 10vh;
+    margin-left: 5vw;
+    width: 100px;
+    border-radius: 100%;
+  }
+  &__badge {
+    position: absolute;
+    right: 1vw;
   }
 }

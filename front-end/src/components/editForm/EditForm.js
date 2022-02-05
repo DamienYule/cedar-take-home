@@ -1,19 +1,12 @@
 import axios from "axios";
 import React from "react";
+import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { apiURL } from "../../util/apiURL";
 const API = apiURL();
 
 
 function EditForm({ appointment,setAppointment,setAppointments,appointments,setDisplayEdit }) {
-//   const [input, setInput] = (useState = {
-//     id: appointment.id,
-//     doctor: appointment.doctor,
-//     img: appointment.img,
-//     patient: appointment.patient,
-//     reason_for_visit: appointment.reason_for_visit,
-//     notes: appointment.notes,
-//     date: appointment.date,
-//   });
+
   const handleSubmit = async (e) => {
       e.preventDefault()
     const res = await axios.put(`${API}/appointments/${appointment.id}`,appointment)//${input.id}?uid=${user.uid}`, input)
@@ -31,6 +24,13 @@ function EditForm({ appointment,setAppointment,setAppointments,appointments,setD
     <div className="card">
       <div className="card-body">
         <form onSubmit={handleSubmit}>
+        <DateTimePickerComponent
+            className="dateTimePicker"
+            id="date"
+            value={appointment.date}
+            placeholder="Select Date"
+            onChange={handleChange}
+          />
           <div className="input-group mb-3">
             <span
               htmlFor="patient"
@@ -78,9 +78,10 @@ function EditForm({ appointment,setAppointment,setAppointments,appointments,setD
               aria-label="With textarea"
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-outline-danger">
             Submit
           </button>
+
         </form>
       </div>
     </div>

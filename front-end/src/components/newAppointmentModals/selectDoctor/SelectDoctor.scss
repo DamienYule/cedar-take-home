@@ -1,0 +1,19 @@
+.selectDoc{
+    &__img{
+        position:relative;
+        left: 30%;
+        width: 100px;
+        border-radius: 100%;
+        &:hover {
+            cursor: pointer;
+        }
+        &:link ,&:active , :focus,  &:visited {
+            border:#d10000 3px solid;
+        }
+    }
+    &__doctor{
+        font-size: larger;
+        text-align: center;
+        
+    }
+}

@@ -1,8 +1,9 @@
 .nav {
   &__container {
-    background-color: rgb(252, 242, 242);
+
     display: flex;
     justify-content: space-between;
+    border-bottom: lightgray 2px solid;
   }
   &__logo {
     align-self: center;
@@ -24,13 +25,18 @@
         font-family: 'Raleway', sans-serif;
 
         &:focus {
-          border-bottom: 1px gray solid;
+          border-bottom: 2px rgb(203, 0, 0) solid;
         }
   }
   &__plus {
     float: right;
     margin: 20px;
+    margin-right: -20vw;
     font-size: 35px;
     color: grey;
+    &:hover {
+        color: rgb(203, 0, 0);
+        cursor: pointer;
+    }
   }
 }
