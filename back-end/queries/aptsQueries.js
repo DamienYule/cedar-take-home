@@ -27,7 +27,7 @@ const newApt = async (apt) => {
     apt;
   try {
     const createdApt = await db.one(
-      `INSERT INTO appointments (doctor, patient, img, reason_for_visit, notes, date) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
+      `INSERT INTO appointments (doctor, img, patient, reason_for_visit, notes, date) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
       [doctor,img,patient, reason_for_visit, notes, date]
     );
     return { success: true, payload: createdApt };
