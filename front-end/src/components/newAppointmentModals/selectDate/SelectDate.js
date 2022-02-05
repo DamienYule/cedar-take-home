@@ -1,8 +1,7 @@
-import { useState } from "react";
+import React from "react";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import { apiURL } from "../../../util/apiURL";
-import Button from "react-bootstrap/esm/Button";
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 import "./SelectDate.scss";
 const API = apiURL();
@@ -14,7 +13,6 @@ function SelectDate({
   setNewAppointment,
   setAppointments,
 }) {
-    console.log(newAppointment);
   const handleSubmit = async () => {
     await createAppointment();
     setDateShow(false);

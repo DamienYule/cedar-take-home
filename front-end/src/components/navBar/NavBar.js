@@ -24,7 +24,7 @@ function NavBar({
 
   return (
     <div className="nav__container" data-testid="nav__constainer">
-      <img className="nav__logo" data-testid="nav__logo" src={Logo}></img>
+      <img className="nav__logo" alt="logo pic"data-testid="nav__logo" src={Logo}></img>
       <input
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

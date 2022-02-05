@@ -1,9 +1,7 @@
-import { useState } from "react";
+import React from "react";
 import "./Appointment.scss";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-
-import Button from "react-bootstrap/Button";
 import EditForm from "../editForm/EditForm";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL";
@@ -44,17 +42,15 @@ function Appointment({
       {!displayNotSelcted && !displayEdit && (
         <div>
           <Card className="">
-            <Card.Header>Doctor: {appointment.doctor} <Badge className="rightContainer__badge" pill bg="danger" pill>
+            <Card.Header>Doctor: {appointment.doctor} <Badge className="rightContainer__badge"  bg="danger" pill>
         {appointment.id}
       </Badge></Card.Header>
           </Card>
 
           <div className="rightContainer__twoContainers">
-            <img src={appointment.img} className="rightContainer__img"></img>
+            <img src={appointment.img} alt="doctor pic" className="rightContainer__img"></img>
 
             <Card className="rightContainer__card">
-              {/* <Card.Header>Doctor: {appointment.doctor}</Card.Header> */}
-              {/* <Card.Img variant="left" src={appointment.img} /> */}
               <Card.Body>
                 <Card.Title> Appointment: {date.toLocaleString()}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
@@ -67,15 +63,6 @@ function Appointment({
                 <Card.Subtitle className="mb-2 text-muted">
                   {appointment.notes}
                 </Card.Subtitle>
-                {/* <button
-                  className="btn btn-outline-danger"
-                  onClick={handleClick}
-                >
-                  Edit
-                </button>
-                <button type="submit" className="btn btn-danger ">
-                  Delete Appointment
-                </button> */}
               </Card.Body>
             </Card>
           </div>

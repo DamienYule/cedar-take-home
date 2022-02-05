@@ -7,6 +7,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "./Appointments.scss";
 import Appointment from "../appointment/Appointment";
 
+
 const API = apiURL();
 function Appointments() {
   const [appointments, setAppointments] = useState([]);
@@ -16,16 +17,11 @@ function Appointments() {
   const [appointment, setAppointment] = useState({});
   const [displayNotSelcted, setDisplayNotSelcted] = useState(true);
   const [displayEdit, setDisplayEdit] = useState(false);
-  console.log(searchTerm);
 
   useEffect(() => {
     const fetchAllAppointments = async () => {
       const res = await axios.get(`${API}/appointments`);
-      let array = res.data.payload;
-      array.sort(function (a, b) {
-        return new Date(a.date) - new Date(b.date);
-      });
-      setAppointments(array);
+      setAppointments(res.data.payload);
       setLoading(false);
     };
     fetchAllAppointments();
@@ -42,7 +38,7 @@ function Appointments() {
     } else {
       setFilteredApts([]);
     }
-  }, [searchTerm]);
+  }, [searchTerm,displayEdit,appointments]);
 
   return (
     <div className="appointments" data-testid="appointments">
@@ -58,7 +54,9 @@ function Appointments() {
         {loading && "loading..."}
         {!searchTerm && appointments &&
           !loading &&
-          appointments.map((apt) => {
+          appointments.sort(function (a, b) {
+            return new Date(a.date) - new Date(b.date);
+          }).map((apt) => {
             return (
               <AppointmentItem
                 key={apt.id}
@@ -71,9 +69,12 @@ function Appointments() {
           })}
             {searchTerm &&
           !loading &&
-          filteredApts.map((apt) => {
+          filteredApts.sort(function (a, b) {
+            return new Date(a.date) - new Date(b.date);
+          }).map((apt) => {
             return (
               <AppointmentItem
+              className="aptCard"
                 key={apt.id}
                 apt={apt}
                 setAppointment={setAppointment}

@@ -17,6 +17,7 @@ function DoctorListItem({doc,newAppointment,setNewAppointment}) {
         src={doc.img}
         className="selectDoc__img"
         onClick={handleClick}
+        alt="doctor pic"
       />
       <div className="selectDoc__doctor">{doc.doctor}</div>
     </Col>

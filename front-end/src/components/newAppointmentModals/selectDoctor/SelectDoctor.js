@@ -1,8 +1,6 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/esm/Button";
 import "./SelectDoctor.scss";
 import { doctors } from "./data/dataMDs";
 import DoctorListItem from "./DoctorListItem";
