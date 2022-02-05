@@ -6,4 +6,10 @@
   margin-top: 2vh;
   margin-left: 50vw;
   overflow-y: scroll;
+
+  &__notSelected{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20vh;
+  }
 }

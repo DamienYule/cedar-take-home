@@ -12,6 +12,8 @@ function Appointments() {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [appointment, setAppointment] = useState({});
+  const [displayNotSelcted, setDisplayNotSelcted] = useState(true);
+  const [displayEdit, setDisplayEdit] = useState(false);
   console.log(appointment.id);
 
   useEffect(() => {
@@ -27,26 +29,31 @@ function Appointments() {
     <div className="appointments" data-testid="appointments">
       <NavBar />
 
-      
-      
-        <ListGroup className="appointments__leftContainer">
-            {loading && "loading..."}
-          {appointments.length &&
-            !loading &&
-            appointments.map((apt) => {
-              return (
-                <AppointmentItem
-                  key={apt.id}
-                  apt={apt}
-                  setAppointment={setAppointment}
-                />
-              );
-            })}
-        </ListGroup>
-        <Appointment 
+      <ListGroup className="appointments__leftContainer">
+        {loading && "loading..."}
+        {appointments.length &&
+          !loading &&
+          appointments.map((apt) => {
+            return (
+              <AppointmentItem
+                key={apt.id}
+                apt={apt}
+                setAppointment={setAppointment}
+                setDisplayNotSelcted={setDisplayNotSelcted}
+                setDisplayEdit={setDisplayEdit}
+              />
+            );
+          })}
+      </ListGroup>
+      <Appointment
+        appointments={appointments}
+        setAppointments={setAppointments}
         appointment={appointment}
-        ></Appointment>
-     
+        setAppointment={setAppointment}
+        displayNotSelcted={displayNotSelcted}
+        displayEdit={displayEdit}
+        setDisplayEdit={setDisplayEdit}
+      ></Appointment>
     </div>
   );
 }

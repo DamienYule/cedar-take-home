@@ -4,12 +4,14 @@ import "./AppointmentItem.scss";
 import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
 
-function AppointmentItem({ apt, setAppointment }) {
+function AppointmentItem({ apt, setAppointment,setDisplayNotSelcted,setDisplayEdit }) {
 
 //   const [appointment, setAppointment] = useState({});
 
     const handleSelect =() =>{
         setAppointment(apt)
+        setDisplayNotSelcted(false)
+        setDisplayEdit(false)
         // console.log(appointment.id)
     }
 
