@@ -37,6 +37,10 @@
     &:hover {
         color: rgb(203, 0, 0);
         cursor: pointer;
+        
     }
+    @media screen and (max-width: 650px) {
+        margin-right: -5vw
+        }
   }
 }

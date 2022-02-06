@@ -9,6 +9,11 @@
     margin-top: 2vh;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     border-radius: 0px;
+    @media screen and (max-width: 650px) {
+        display: relative;
+        width: 85vw;
+        margin-left:5vw;
+        }
   }
   &__header {
     font-size: 50px;
@@ -22,17 +27,14 @@
     padding-bottom: 30px;
     color: rgb(201, 3, 3);
     font-family: monospace;
+    @media screen and (max-width: 650px) {
+        margin-top:3vh;
+        margin-left:30vw
+        }
   }
 
   // .ListGroup.Item{
 
   // }
 }
-.appointments__rightContainer {
-  width: 47vw;
-  border: lightgray solid 2px;
-  height: 75vh;
-  margin-top: 2vh;
-  background-color: limegreen;
-  // margin-left: 50vw;
-}
+

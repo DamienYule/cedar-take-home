@@ -7,9 +7,16 @@
   margin-top: 2vh;
   margin-left: 50vw;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-
   overflow-y: scroll;
-
+  @media screen and (max-width: 650px) {
+    position: relative;
+    width:85vw;
+    margin-left:5vw;
+    margin-top:80vh;
+    // margin-top:90vh;
+    overflow-y:none;
+    height:float;
+    }
   &__notSelected {
     font-size: 30px;
     text-align: center;
@@ -29,4 +36,5 @@
     position: absolute;
     right: 1vw;
   }
+  
 }
