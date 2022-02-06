@@ -10,12 +10,10 @@
   overflow-y: scroll;
   @media screen and (max-width: 650px) {
     position: relative;
-    width:85vw;
+    width:82vw;
     margin-left:5vw;
     margin-top:80vh;
-    // margin-top:90vh;
-    overflow-y:none;
-    height:float;
+    height:66vw;
     }
   &__notSelected {
     font-size: 30px;
