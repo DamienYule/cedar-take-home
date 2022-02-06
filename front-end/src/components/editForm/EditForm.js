@@ -2,35 +2,45 @@ import axios from "axios";
 import React from "react";
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { apiURL } from "../../util/apiURL";
+import Card from "react-bootstrap/Card"
+import Badge from "react-bootstrap/esm/Badge";
+import "./EditForm.scss";
 const API = apiURL();
 
-
-function EditForm({ appointment,setAppointment,setAppointments,appointments,setDisplayEdit }) {
-
+function EditForm({
+  appointment,
+  setAppointment,
+  setAppointments,
+  appointments,
+  setDisplayEdit,
+}) {
   const handleSubmit = async (e) => {
-      e.preventDefault()
-    const res = await axios.put(`${API}/appointments/${appointment.id}`,appointment)//${input.id}?uid=${user.uid}`, input)
-    if(res.data.success){
-        setAppointments(appointments.map((apt)=>apt.id ===appointment.id ? (apt = res.data.payload): apt))
+    e.preventDefault();
+    const res = await axios.put(
+      `${API}/appointments/${appointment.id}`,
+      appointment
+    );
+    if (res.data.success) {
+      setAppointments(
+        appointments.map((apt) =>
+          apt.id === appointment.id ? (apt = res.data.payload) : apt
+        )
+      );
     }
-    setDisplayEdit(false)
+    setDisplayEdit(false);
   };
 
   const handleChange = (e) => {
-    setAppointment({...appointment,[e.target.id]: e.target.value })
+    setAppointment({ ...appointment, [e.target.id]: e.target.value });
   };
 
   return (
     <div className="card">
+      <Card.Header>Doctor: {appointment.doctor} <Badge className="rightContainer__badge"  bg="danger" pill>
+        {appointment.id}
+      </Badge></Card.Header>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
-        <DateTimePickerComponent
-            className="dateTimePicker"
-            id="date"
-            value={appointment.date}
-            placeholder="Select Date"
-            onChange={handleChange}
-          />
           <div className="input-group mb-3">
             <span
               htmlFor="patient"
@@ -66,7 +76,7 @@ function EditForm({ appointment,setAppointment,setAppointments,appointments,setD
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text" htmlFor="description">
-            Notes
+              Notes
             </span>
             <textarea
               id="notes"
@@ -77,11 +87,19 @@ function EditForm({ appointment,setAppointment,setAppointments,appointments,setD
               className="form-control"
               aria-label="With textarea"
             ></textarea>
+            
+          
           </div>
-          <button type="submit" className="btn btn-outline-danger">
+            <DateTimePickerComponent
+            className="dateTimePicker  editForm__picker"
+            id="date"
+            value={appointment.date}
+            placeholder="Select Date"
+            onChange={handleChange}
+          />
+          <button type="submit" className="btn btn-outline-danger editForm__submit">
             Submit
           </button>
-
         </form>
       </div>
     </div>
@@ -89,6 +107,3 @@ function EditForm({ appointment,setAppointment,setAppointments,appointments,setD
 }
 
 export default EditForm;
-//https://www.youtube.com/watch?v=osAIu-1ag-Q
-
-//https://doctors.nyp.org/?aff=false&sp=obgyn

@@ -71,7 +71,7 @@ function Appointment({
               <button className="btn btn-outline-danger" onClick={handleClick}>
                 Edit
               </button>
-              <button className="btn btn-danger " onClick={handleDelete}>
+              <button className="btn btn-danger rightContainer__deleteBtn" onClick={handleDelete}>
                 Delete Appointment
               </button>
             </Card.Footer>

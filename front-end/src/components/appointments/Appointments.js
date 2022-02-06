@@ -6,6 +6,7 @@ import NavBar from "../navBar/NavBar";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./Appointments.scss";
 import Appointment from "../appointment/Appointment";
+import Spinner from "react-bootstrap/Spinner"
 
 
 const API = apiURL();
@@ -51,7 +52,8 @@ function Appointments() {
       />
       <div className="appointments__header">Appointments</div>
       <ListGroup className="appointments__leftContainer">
-        {loading && "loading..."}
+        {loading && 
+        <Spinner animation="border" variant="danger" className="appointments__loading"/>}
         {!searchTerm && appointments &&
           !loading &&
           appointments.sort(function (a, b) {

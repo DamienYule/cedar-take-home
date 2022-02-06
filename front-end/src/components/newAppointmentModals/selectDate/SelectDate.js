@@ -15,6 +15,14 @@ function SelectDate({
 }) {
   const handleSubmit = async () => {
     await createAppointment();
+    setNewAppointment({                
+                img: "",
+                doctor: "",
+                date: new Date(),
+                patient: "",
+                reason_for_visit: "",
+                notes: "",
+             })
     setDateShow(false);
   };
   const createAppointment = async () => {
@@ -38,9 +46,18 @@ function SelectDate({
     <div>
       <Modal
         className="modalDateAndText"
-        size="lg"
         show={dateShow}
-        onHide={() => setDateShow(false)}
+        onHide={() => {
+            setDateShow(false)
+            setNewAppointment({                
+                img: "",
+                doctor: "",
+                date: new Date(),
+                patient: "",
+                reason_for_visit: "",
+                notes: "",
+             })
+            }}
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
@@ -51,13 +68,7 @@ function SelectDate({
         </Modal.Header>
 
         <Modal.Body>
-          <DateTimePickerComponent
-            className="dateTimePicker"
-            id="date"
-            value={newAppointment.date}
-            placeholder="Select Date"
-            onChange={handleChange}
-          />
+         
           <div className="input-group mb-3">
             <span
               htmlFor="patient"
@@ -105,6 +116,13 @@ function SelectDate({
               aria-label="With textarea"
             ></textarea>
           </div>
+           <DateTimePickerComponent
+            className="dateTimePicker"
+            id="date"
+            value={newAppointment.date}
+            placeholder="Select Date"
+            onChange={handleChange}
+          />
         </Modal.Body>
         <Modal.Footer>
           <button  className="btn btn-outline-danger" onClick={handleSubmit}>Submit</button>
