@@ -5,6 +5,7 @@ import Badge from "react-bootstrap/Badge";
 import EditForm from "../editForm/EditForm";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL";
+
 const API = apiURL();
 
 function Appointment({
@@ -16,18 +17,22 @@ function Appointment({
   setAppointment,
   setAppointments,
   appointments,
+  setShowEdit,
 }) {
+
   let date = new Date(appointment.date);
   const handleClick = () => {
     setDisplayEdit(true);
   };
- 
+
   const handleDelete = async () => {
     try {
       const res = await axios.delete(`${API}/appointments/${appointment.id}`);
       if (res.data.success) {
-        setAppointments(appointments.filter((apt) => apt.id !== appointment.id));
-        setDisplayNotSelcted(true)
+        setAppointments(
+          appointments.filter((apt) => apt.id !== appointment.id)
+        );
+        setDisplayNotSelcted(true);
       }
     } catch (error) {
       console.log(error);
@@ -42,13 +47,20 @@ function Appointment({
       {!displayNotSelcted && !displayEdit && (
         <div>
           <Card className="">
-            <Card.Header>Doctor: {appointment.doctor} <Badge className="rightContainer__badge"  bg="danger" pill>
-        {appointment.id}
-      </Badge></Card.Header>
+            <Card.Header>
+              Doctor: {appointment.doctor}{" "}
+              <Badge className="rightContainer__badge" bg="danger" pill>
+                {appointment.id}
+              </Badge>
+            </Card.Header>
           </Card>
 
           <div className="rightContainer__twoContainers">
-            <img src={appointment.img} alt="doctor pic" className="rightContainer__img"></img>
+            <img
+              src={appointment.img}
+              alt="doctor pic"
+              className="rightContainer__img"
+            ></img>
 
             <Card className="rightContainer__card">
               <Card.Body>
@@ -71,7 +83,10 @@ function Appointment({
               <button className="btn btn-outline-danger" onClick={handleClick}>
                 Edit
               </button>
-              <button className="btn btn-danger rightContainer__deleteBtn" onClick={handleDelete}>
+              <button
+                className="btn btn-danger rightContainer__deleteBtn"
+                onClick={handleDelete}
+              >
                 Delete Appointment
               </button>
             </Card.Footer>
@@ -80,6 +95,7 @@ function Appointment({
       )}
       {!displayNotSelcted && displayEdit && (
         <EditForm
+          setShowEdit={setShowEdit}
           appointments={appointments}
           appointment={appointment}
           setAppointment={setAppointment}
@@ -87,6 +103,7 @@ function Appointment({
           setDisplayEdit={setDisplayEdit}
         />
       )}
+      
     </div>
   );
 }

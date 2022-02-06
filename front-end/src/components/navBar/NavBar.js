@@ -6,11 +6,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import SelectDoctor from "../newAppointmentModals/selectDoctor/SelectDoctor";
 import SelectDate from "../newAppointmentModals/selectDate/SelectDate";
 
-function NavBar({
-  setAppointments,
-  searchTerm,
-  setSearchTerm,
-}) {
+function NavBar({ setAppointments, searchTerm, setSearchTerm,SetCreatedAppointmentNumber,setShow }) {
   const [lgShow, setLgShow] = useState(false);
   const [dateShow, setDateShow] = useState(false);
   const [newAppointment, setNewAppointment] = useState({
@@ -22,9 +18,15 @@ function NavBar({
     notes: "",
   });
 
+
   return (
     <div className="nav__container" data-testid="nav__constainer">
-      <img className="nav__logo" alt="logo pic"data-testid="nav__logo" src={Logo}></img>
+      <img
+        className="nav__logo"
+        alt="logo pic"
+        data-testid="nav__logo"
+        src={Logo}
+      ></img>
       <input
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
@@ -44,6 +46,8 @@ function NavBar({
         setNewAppointment={setNewAppointment}
       />
       <SelectDate
+        SetCreatedAppointmentNumber={SetCreatedAppointmentNumber}
+        setShow={setShow}
         setAppointments={setAppointments}
         dateShow={dateShow}
         setDateShow={setDateShow}

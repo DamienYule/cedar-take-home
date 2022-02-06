@@ -12,17 +12,20 @@ function SelectDate({
   newAppointment,
   setNewAppointment,
   setAppointments,
+  setShow,
+  SetCreatedAppointmentNumber,
 }) {
   const handleSubmit = async () => {
     await createAppointment();
-    setNewAppointment({                
-                img: "",
-                doctor: "",
-                date: new Date(),
-                patient: "",
-                reason_for_visit: "",
-                notes: "",
-             })
+    setNewAppointment({
+      img: "",
+      doctor: "",
+      date: new Date(),
+      patient: "",
+      reason_for_visit: "",
+      notes: "",
+    });
+    setShow(true);
     setDateShow(false);
   };
   const createAppointment = async () => {
@@ -33,6 +36,7 @@ function SelectDate({
           ...oldArrayOfApts,
           res.data.payload,
         ]);
+        SetCreatedAppointmentNumber(res.data.payload)
       }
     } catch (err) {
       console.log(err);
@@ -48,27 +52,24 @@ function SelectDate({
         className="modalDateAndText"
         show={dateShow}
         onHide={() => {
-            setDateShow(false)
-            setNewAppointment({                
-                img: "",
-                doctor: "",
-                date: new Date(),
-                patient: "",
-                reason_for_visit: "",
-                notes: "",
-             })
-            }}
+          setDateShow(false);
+          setNewAppointment({
+            img: "",
+            doctor: "",
+            date: new Date(),
+            patient: "",
+            reason_for_visit: "",
+            notes: "",
+          });
+        }}
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Details 
-          </Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">Details</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-         
           <div className="input-group mb-3">
             <span
               htmlFor="patient"
@@ -116,7 +117,7 @@ function SelectDate({
               aria-label="With textarea"
             ></textarea>
           </div>
-           <DateTimePickerComponent
+          <DateTimePickerComponent
             className="dateTimePicker"
             id="date"
             value={newAppointment.date}
@@ -125,7 +126,9 @@ function SelectDate({
           />
         </Modal.Body>
         <Modal.Footer>
-          <button  className="btn btn-outline-danger" onClick={handleSubmit}>Submit</button>
+          <button className="btn btn-outline-danger" onClick={handleSubmit}>
+            Submit
+          </button>
         </Modal.Footer>
       </Modal>
     </div>

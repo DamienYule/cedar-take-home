@@ -5,6 +5,7 @@ import { apiURL } from "../../util/apiURL";
 import Card from "react-bootstrap/Card"
 import Badge from "react-bootstrap/esm/Badge";
 import "./EditForm.scss";
+
 const API = apiURL();
 
 function EditForm({
@@ -13,6 +14,7 @@ function EditForm({
   setAppointments,
   appointments,
   setDisplayEdit,
+  setShowEdit,
 }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +28,7 @@ function EditForm({
           apt.id === appointment.id ? (apt = res.data.payload) : apt
         )
       );
+      setShowEdit(true)
     }
     setDisplayEdit(false);
   };
