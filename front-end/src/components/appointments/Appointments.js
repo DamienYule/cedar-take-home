@@ -19,7 +19,6 @@ function Appointments() {
   const [appointment, setAppointment] = useState({});
   const [displayNotSelcted, setDisplayNotSelcted] = useState(true);
   const [displayEdit, setDisplayEdit] = useState(false);
-  const [showEdit, setShowEdit] = useState(false);
   const [show, setShow] = useState(false);
   const [createdApointmentNumber, SetCreatedAppointmentNumber] = useState({});
   useEffect(() => {
@@ -102,7 +101,6 @@ function Appointments() {
             })}
       </ListGroup>
       <Appointment
-        setShowEdit={setShowEdit}
         appointments={appointments}
         setAppointments={setAppointments}
         appointment={appointment}
@@ -113,29 +111,7 @@ function Appointments() {
         setDisplayEdit={setDisplayEdit}
       ></Appointment>
       <div className="appointments__footer">Built by Damien Yule</div>
-      <ToastContainer className="p-3" position="top-end">
-        <Toast
-          onClose={() => setShowEdit(false)}
-          show={showEdit}
-          delay={8000}
-          autohide
-        >
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">
-              Appointment number {appointment.id}
-            </strong>
-            <small>Thank you</small>
-          </Toast.Header>
-          <Toast.Body className="dark">
-            You Changed Dr {appointment.doctor} appointment!
-          </Toast.Body>
-        </Toast>
-      </ToastContainer>
+      
       <ToastContainer className="p-3" position="top-end">
       <Toast onClose={() => setShow(false)} show={show} delay={8000} autohide >
         <Toast.Header>

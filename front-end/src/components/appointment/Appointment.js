@@ -1,10 +1,12 @@
-import React from "react";
+import {useState} from "react";
 import "./Appointment.scss";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import EditForm from "../editForm/EditForm";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL";
+import ToastContainer from "react-bootstrap/ToastContainer";
+import Toast from "react-bootstrap/Toast";
 
 const API = apiURL();
 
@@ -17,8 +19,9 @@ function Appointment({
   setAppointment,
   setAppointments,
   appointments,
-  setShowEdit,
 }) {
+  const [showEdit, setShowEdit] = useState(false);
+
 
   let date = new Date(appointment?.date);
   const handleClick = () => {
@@ -103,7 +106,29 @@ function Appointment({
           setDisplayEdit={setDisplayEdit}
         />
       )}
-      
+      <ToastContainer className="p-3" position='bottom-start'>
+        <Toast
+          onClose={() => setShowEdit(false)}
+          show={showEdit}
+          delay={8000}
+          autohide
+        >
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">
+              Appointment number {appointment.id}
+            </strong>
+            <small>Thank you</small>
+          </Toast.Header>
+          <Toast.Body className="dark">
+            You Changed Dr {appointment.doctor} appointment!
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
