@@ -3,7 +3,7 @@ import React from "react";
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { apiURL } from "../../util/apiURL";
 import Card from "react-bootstrap/Card"
-import Badge from "react-bootstrap/esm/Badge";
+import Badge from "react-bootstrap/Badge";
 import "./EditForm.scss";
 
 const API = apiURL();

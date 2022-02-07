@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import AppointmentItem from "../AppointmentItem"
 
 
-describe("display a list of apointments", () => {
+describe("renders a single list item", () => {
   it("renders properly", () => {
     render(<AppointmentItem />);
   });

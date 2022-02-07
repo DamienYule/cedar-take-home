@@ -10,7 +10,7 @@ function AppointmentItem({
   setDisplayNotSelcted,
   setDisplayEdit,
 }) {
-  let date = dateString(apt.date);
+  let date = dateString(apt?.date);
 
   const handleSelect = () => {
     setAppointment(apt);
@@ -25,12 +25,12 @@ function AppointmentItem({
       className="d-flex justify-content-between align-items-start aptItem"
     >
       <div className="ms-2 me-auto">
-        <div className="fw-bold">{apt.doctor} </div>
-        <div className="fw-mute">{apt.patient} </div>
+        <div className="fw-bold">{apt?.doctor} </div>
+        <div className="fw-mute">{apt?.patient} </div>
         <div>{date}</div>
       </div>
       <Badge pill bg="danger">
-        {apt.id}
+        {apt?.id}
       </Badge>
     </ListGroup.Item>
   );

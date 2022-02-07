@@ -20,7 +20,7 @@ function Appointment({
   setShowEdit,
 }) {
 
-  let date = new Date(appointment.date);
+  let date = new Date(appointment?.date);
   const handleClick = () => {
     setDisplayEdit(true);
   };
@@ -48,16 +48,16 @@ function Appointment({
         <div>
           <Card className="">
             <Card.Header>
-              Doctor: {appointment.doctor}{" "}
+              Doctor: {appointment?.doctor}{" "}
               <Badge className="rightContainer__badge" bg="danger" pill>
-                {appointment.id}
+                {appointment?.id}
               </Badge>
             </Card.Header>
           </Card>
 
           <div className="rightContainer__twoContainers">
             <img
-              src={appointment.img}
+              src={appointment?.img}
               alt="doctor pic"
               className="rightContainer__img"
             ></img>
@@ -66,14 +66,14 @@ function Appointment({
               <Card.Body>
                 <Card.Title> Appointment: {date.toLocaleString()}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Patient: {appointment.patient}
+                  Patient: {appointment?.patient}
                 </Card.Subtitle>
                 <Card.Text>
-                  Reason for visit: {appointment.reason_for_visit}
+                  Reason for visit: {appointment?.reason_for_visit}
                 </Card.Text>
                 <Card.Text>Notes:</Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {appointment.notes}
+                  {appointment?.notes}
                 </Card.Subtitle>
               </Card.Body>
             </Card>
