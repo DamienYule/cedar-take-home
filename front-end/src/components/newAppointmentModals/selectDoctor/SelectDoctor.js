@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import "./SelectDoctor.scss";
@@ -11,16 +11,11 @@ function SelectDoctor({
   newAppointment,
   setNewAppointment,
 }) {
-  const [docSelected, setDocSelected] = useState(false);
 
   const handleNext = () => {
-    if (!docSelected) {
-      console.log("select a doctor");
-    } else {
       setDateShow(true);
       setLgShow(false);
-      setDocSelected(false);
-    }
+    
   };
   return (
     <div>
@@ -50,7 +45,7 @@ function SelectDoctor({
             {doctors.map((doc, index) => {
               return (
                 <DoctorListItem
-                  setDocSelected={setDocSelected}
+                 handleNext={handleNext}
                   newAppointment={newAppointment}
                   setNewAppointment={setNewAppointment}
                   doc={doc}
@@ -60,12 +55,12 @@ function SelectDoctor({
             })}
           </Row>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <div className="selectDoc__footerText">{newAppointment.doctor}</div>
           <button className="btn btn-outline-danger" onClick={handleNext}>
             Next
           </button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </div>
   );

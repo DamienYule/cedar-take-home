@@ -1,7 +1,7 @@
 import React from "react";
 import Col from "react-bootstrap/Col";
 
-function DoctorListItem({doc,newAppointment,setNewAppointment,setDocSelected}) {
+function DoctorListItem({doc,newAppointment,setNewAppointment,setDocSelected,handleNext}) {
   
     const handleClick = ()=>{
         setNewAppointment({
@@ -9,7 +9,7 @@ function DoctorListItem({doc,newAppointment,setNewAppointment,setDocSelected}) {
             doctor: doc.doctor,
             img: doc.img,
           })
-        setDocSelected(true)
+          handleNext()
     }
   
     return (
