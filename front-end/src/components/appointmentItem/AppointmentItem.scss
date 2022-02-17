@@ -1,5 +1,13 @@
 .aptItem {
   cursor: pointer;
+  :hover{
+      background-color: rgba(201, 3, 3, 0.035);
+  }
+}
+.remove_extra_background{
+    :hover{
+        background-color:#ffffff00 ;
+    }
 }
 .id {
   color: rgb(201, 3, 3);
