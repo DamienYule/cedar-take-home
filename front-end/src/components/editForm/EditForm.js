@@ -39,9 +39,9 @@ function EditForm({
 
   return (
     <div className="card">
-      <Card.Header>Doctor: {appointment.doctor} <Badge className="rightContainer__badge"  bg="danger" pill>
-        {appointment.id}
-      </Badge></Card.Header>
+      <Card.Header>Doctor: {appointment.doctor} <div className="rightContainer__badge">
+        Appointment # {appointment.id}
+      </div></Card.Header>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
           <div className="input-group mb-3">
