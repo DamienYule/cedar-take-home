@@ -1,3 +1,19 @@
-.aptItem{
-    cursor: pointer;
+.aptItem {
+  cursor: pointer;
+}
+.id {
+  color: rgb(201, 3, 3);
+  font-family: monospace;
+  &__text {
+    font-size: small;
+    display: inline;
+  } 
+  &__number {
+    font-size: small;
+    display: inline;
+  }
+   @media screen and (max-width: 650px) {
+    display:grid;
+    grid-template-columns: 35px 1fr;
+    }
 }

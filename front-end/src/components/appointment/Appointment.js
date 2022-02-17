@@ -1,7 +1,6 @@
 import {useState} from "react";
 import "./Appointment.scss";
 import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
 import EditForm from "../editForm/EditForm";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL";
@@ -52,9 +51,9 @@ function Appointment({
           <Card className="">
             <Card.Header>
               Doctor: {appointment?.doctor}{" "}
-              <Badge className="rightContainer__badge" bg="danger" pill>
-                {appointment?.id}
-              </Badge>
+              <div className="rightContainer__badge" >
+                Appointment # {appointment?.id}
+              </div>
             </Card.Header>
           </Card>
 

@@ -110,7 +110,6 @@ function Appointments() {
         displayEdit={displayEdit}
         setDisplayEdit={setDisplayEdit}
       ></Appointment>
-      <div className="appointments__footer">Built by Damien Yule</div>
       
       <ToastContainer className="p-3" position="top-end">
       <Toast onClose={() => setShow(false)} show={show} delay={8000} autohide >
@@ -122,6 +121,7 @@ function Appointments() {
         <Toast.Body className='dark'>You created an appointment for {createdApointmentNumber.doctor}!</Toast.Body>
       </Toast>
       </ToastContainer>
+      <div className="appointments__footer">Built by Damien Yule</div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./AppointmentItem.scss";
 import ListGroup from "react-bootstrap/ListGroup";
-import Badge from "react-bootstrap/Badge";
+
 import { dateString } from "../../helperFunctions/datetime";
 
 function AppointmentItem({
@@ -29,9 +29,9 @@ function AppointmentItem({
         <div className="fw-mute">{apt?.patient} </div>
         <div>{date}</div>
       </div>
-      <Badge pill bg="danger">
-        {apt?.id}
-      </Badge>
+      <div className="id" >
+        <div className="id__text">id : </div> <div className="id__number">{apt?.id}</div> 
+      </div>
     </ListGroup.Item>
   );
 }

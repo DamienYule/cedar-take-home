@@ -33,6 +33,13 @@
   &__badge {
     position: absolute;
     right: 1vw;
+    top: 5px;
+    color: rgb(201, 3, 3);
+    font-family: monospace;
+    @media screen and (max-width: 650px) {
+      position:relative;
+      margin-left: 10px;
+      }
   }
   &__deleteBtn{
     margin-left:17px;
