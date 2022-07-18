@@ -1,3 +1,5 @@
+\c cedar; 
+
 DROP TABLE IF EXISTS appointments;
 
 CREATE TABLE appointments (

@@ -1,3 +1,5 @@
 export const apiURL = () => {
-  return "https://calm-depths-83461.herokuapp.com";
+  return window.location.hostname === "localhost"
+    ? "http://localhost:3333"
+    : "https://calm-depths-83461.herokuapp.com";
 };
