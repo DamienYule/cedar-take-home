@@ -21,12 +21,14 @@ function NavBar({ setAppointments, searchTerm, setSearchTerm,SetCreatedAppointme
 
   return (
     <div className="nav__container" data-testid="nav__constainer">
+      <a href="https://doctors.nyp.org/?aff=false" target="_blank" rel="noreferrer">
       <img
         className="nav__logo"
         alt="logo pic"
         data-testid="nav__logo"
         src={Logo}
       ></img>
+      </a>
       <input
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
